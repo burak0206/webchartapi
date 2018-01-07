@@ -20,7 +20,10 @@ public class StatisticRequestValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         StatisticRequestModel model= (StatisticRequestModel) o;
-        if(model.getTimeUnit() != null && !(model.getTimeUnit().equals("seconds") || model.getTimeUnit().equals("minutes")) )
+        if (model.getTimeUnit() == null ){
+            errors.rejectValue("timeUnit","it should not be null");
+        }
+        else if(!(model.getTimeUnit().equals("seconds") || model.getTimeUnit().equals("minutes")) )
         {
             errors.rejectValue("timeUnit","it should be minutes or seconds");
         }
