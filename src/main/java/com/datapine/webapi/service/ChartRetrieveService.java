@@ -26,6 +26,10 @@ public class ChartRetrieveService {
             writeRequestAndQueryIntoStatisticsRepository(chartRequestModel.getMeasures());
 
         });
+        if(!chartRequestModel.getDimensions().contains("team")){
+            return Optional.empty();
+        }
+
         ChartResponseModel chartResponseModel = new ChartResponseModel();
         String key = chartRequestModel.getMeasures().get(0);
         if(resultSetsDataRepository.getDataSetsByKey(key).isPresent()){
