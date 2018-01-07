@@ -32,7 +32,7 @@ public class StatisticController {
         return new StatisticResponseModel();
     }
 
-    @RequestMapping(value = "/getstatistics", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/statistics", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public String getstatistics(@Valid  StatisticRequestModel statisticRequestModel, BindingResult bindingResult){
         JsonObject status = new JsonObject();
